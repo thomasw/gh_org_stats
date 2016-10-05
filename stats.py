@@ -108,7 +108,7 @@ def render_reports(reports, limit=DEFAULT_LIMIT):
 def main():
     reports = defaultdict(UserReport)
 
-    for repo in GH.repos.list_by_org('yola', type='all').iterator():
+    for repo in GH.repos.list_by_org(ORG, type='all').iterator():
         print(render_header("Stats for %s/%s" % (ORG, repo.name)))
 
         stats = get_repo_stats(repo.name)
